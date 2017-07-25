@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}我的聚合页{% endblock %}
+
+{% block page_content %}
+<div>
+    <nav style="background-color:#1DB0B8; padding:10px">
+        <h4 style="text-align:center;color:black"><strong>在果壳的宇宙中任意穿行→→<a href="http://gate.guokr.com" target="_blank">任意门</a></strong></h4>
+    </nav>
+</div>
+<div>
+    <section>
+    <div>
+        <div style="width:500px;float:left">
+            <h3>煎蛋刷新啦</h3>
+            <ul>
+                {% for article in jandans %}
+                    <li><a href={{ article.href }} target="_blank">{{ article['title'] }}</a></li>
+                {% endfor %}
+            </ul>
+            </br>
+            <h3>无聊图</h3>
+            <ul>
+                {% for pic in pics %}
+                    <li>
+                        <img src={{ pic.img }} width="450">
+                    </li>
+                    </br>
+                {% endfor %}
+            </ul>
+
+        </div>
+        <div style="width:500px;float:right">
+            <h3>豆瓣精选</h3>
+            <ul>
+                {% for douban in doubans %}
+                <li>
+                    <div style="float:left">
+                        <a href={{ douban.url }} target="_blank">
+                            <img src={{ douban.img }}>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 style="float:left;width:350px">
+                            <a href={{ douban.url }} target="_blank">
+                            {{ douban.title }}
+                            </a>
+                        </h4>
+                        <p style="clear:both">{{ douban.abst }}</p>
+                    </div>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    </section>
+</div>
+<div style="clear:both">
+    <section>
+        <div>
+        <h3 style="backgroud-color:#37C6C0;padding:10px;text-align:center">
+            <strong>无聊了？那么多<a href="http://jandan.net" target="_blank">无聊图</a>戳进去看啊
+            </strong>
+            <a href="http://jandan.net" target="_blank"><img src={{ img }}></a>
+        </h3>
+        </div>
+    </section>
+</div>
+<div>
+    <footer style="background-color:lightslategray;
+                    color:slategray;
+                    clear:both;
+                    text-align:center;
+                    padding:5px;">
+        <p>进来的时间是 {{ moment(current_time).format('LLL') }}.那已经是 {{ moment(current_time).fromNow(refresh=True) }}.
+        一晃又是划水一天？活该天天加班</p>
+    </footer>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}我的聚合页-太阳的距离{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>{{ title }}</h1>
+    <div>
+        {% for content in post.split('\n') %}
+            <p>{{ content }}</p>
+            <br>
+        {% endfor %}
+    </div>
+</div>
+<div id="bpn">
+    <ul class="prenext">
+        <li class="pre">
+            <a href={{ prev_href }}>上一页</a>
+        </li>
+        <li class="next">
+            <a href={{ next_href }}>下一页</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
