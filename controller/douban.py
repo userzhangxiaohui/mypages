@@ -17,8 +17,8 @@ def douban():
         url = article.find('div', class_="title").find('a').get('href')
         abst = article.find('div', class_="content").find_all('a')[1].string
         content.append({'img':img, 'title':title, 'url':url, 'abst':abst})
-    with open(r'\Users\zhang\Desktop\python\learn\mypage\datas\douban.json', 'w') as fp:
-        json.dump(content, fp=fp, indent=4, ensure_ascii=False)
+    #with open(r'\Users\zhang\Desktop\python\learn\mypage\datas\douban.json', 'w') as fp:
+    #    json.dump(content, fp=fp, indent=4, ensure_ascii=False)
     return content
 
 
